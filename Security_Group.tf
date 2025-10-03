@@ -15,7 +15,7 @@ resource "aws_vpc_security_group_ingress_rule" "HTTP" {
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 80
   ip_protocol       = "tcp"
-  to_port           = 81
+  to_port           = 80
 }
 
 resource "aws_vpc_security_group_egress_rule" "All traffic" {
