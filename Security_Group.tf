@@ -10,7 +10,7 @@ resource "aws_security_group" "internet_lb_sg" {
   }
 }
 
-resource "aws_vpc_security_group_ingress_rule" "HTTP" {
+resource "aws_vpc_security_group_ingress_rule" "internet_lb_ingress" {
   security_group_id = aws_security_group.internet_lb_sg.id
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 80
@@ -18,7 +18,7 @@ resource "aws_vpc_security_group_ingress_rule" "HTTP" {
   to_port           = 80
 }
 
-resource "aws_vpc_security_group_egress_rule" "All traffic" {
+resource "aws_vpc_security_group_egress_rule" "internet_lb_egress" {
   security_group_id = aws_security_group.internet_lb_sg.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports
